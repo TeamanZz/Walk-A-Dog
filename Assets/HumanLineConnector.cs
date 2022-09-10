@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LineConnector : MonoBehaviour
+public class HumanLineConnector : MonoBehaviour
 {
     public List<GameObject> connectedPoints = new List<GameObject>();
-    private LineRenderer dogsLineRenderer;
+    private LineRenderer lineRenderer;
 
     void Start()
     {
-        dogsLineRenderer = GetComponent<LineRenderer>();
+        lineRenderer = GetComponent<LineRenderer>();
 
         for (int i = 0; i < connectedPoints.Count; i++)
         {
-            dogsLineRenderer.positionCount++;
+            lineRenderer.positionCount++;
         }
     }
 
@@ -22,7 +22,7 @@ public class LineConnector : MonoBehaviour
     {
         for (int i = 0; i < connectedPoints.Count; i++)
         {
-            dogsLineRenderer.SetPosition(i, connectedPoints[i].transform.position);
+            lineRenderer.SetPosition(i, connectedPoints[i].transform.position);
         }
     }
 }
