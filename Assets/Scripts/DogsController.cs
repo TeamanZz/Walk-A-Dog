@@ -16,6 +16,7 @@ public class DogsController : MonoBehaviour
     private bool joystickWasDisabled;
 
     private float movementSpeed;
+    public Rigidbody humanSpineRb;
 
     private void Update()
     {
@@ -43,6 +44,10 @@ public class DogsController : MonoBehaviour
                 dogsAgents[i].speed = joystickValue * 10;
                 dogsAgents[i].destination = navigationTarget.position;
             }
+
+            if (joystickWasDisabled == false)
+                humanSpineRb.isKinematic = false;
+
             joystickWasDisabled = false;
         }
 
