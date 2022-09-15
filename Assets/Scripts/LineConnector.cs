@@ -10,7 +10,7 @@ public class LineConnector : MonoBehaviour
     void Start()
     {
         dogsLineRenderer = GetComponent<LineRenderer>();
-
+        connectedPoints.Insert(0, gameObject);
         for (int i = 0; i < connectedPoints.Count; i++)
         {
             dogsLineRenderer.positionCount++;

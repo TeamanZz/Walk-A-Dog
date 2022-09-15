@@ -18,8 +18,11 @@ public class DogsController : MonoBehaviour
         {
             for (int i = 0; i < dogsAnimators.Count; i++)
             {
-                dogsAnimators[i].SetFloat("Speed_f", (0));
-                dogsAgents[i].isStopped = true;
+                if (dogsAgents[i].gameObject.activeSelf == true)
+                {
+                    dogsAnimators[i].SetFloat("Speed_f", (0));
+                    dogsAgents[i].isStopped = true;
+                }
             }
             return;
         }
@@ -29,9 +32,12 @@ public class DogsController : MonoBehaviour
 
         for (int i = 0; i < dogsAnimators.Count; i++)
         {
-            dogsAnimators[i].SetFloat("Speed_f", (1));
-            dogsAgents[i].isStopped = false;
-            dogsAgents[i].destination = navigationTarget.position;
+            if (dogsAgents[i].gameObject.activeSelf == true)
+            {
+                dogsAnimators[i].SetFloat("Speed_f", (1));
+                dogsAgents[i].isStopped = false;
+                dogsAgents[i].destination = navigationTarget.position;
+            }
         }
     }
 }
