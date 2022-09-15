@@ -20,13 +20,12 @@ public class DogsController : MonoBehaviour
             {
                 if (dogsAgents[i].gameObject.activeSelf == true)
                 {
-                    dogsAnimators[i].SetFloat("Speed_f", (0));
+                    dogsAnimators[i].SetFloat("Movement_f", (0));
                     dogsAgents[i].isStopped = true;
                 }
             }
             return;
         }
-
 
         navigationTarget.localPosition = targetDog.position + new Vector3(joystick.Horizontal * 15, 0, joystick.Vertical * 15);
 
@@ -34,7 +33,7 @@ public class DogsController : MonoBehaviour
         {
             if (dogsAgents[i].gameObject.activeSelf == true)
             {
-                dogsAnimators[i].SetFloat("Speed_f", (1));
+                dogsAnimators[i].SetFloat("Movement_f", (1));
                 dogsAgents[i].isStopped = false;
                 dogsAgents[i].destination = navigationTarget.position;
             }
