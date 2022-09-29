@@ -6,6 +6,8 @@ using DG.Tweening;
 
 public class DogsController : MonoBehaviour
 {
+    public static DogsController Instance;
+
     public List<Animator> dogsAnimators = new List<Animator>();
     public List<NavMeshAgent> dogsAgents = new List<NavMeshAgent>();
     public Joystick joystick;
@@ -17,6 +19,11 @@ public class DogsController : MonoBehaviour
 
     private float movementSpeed;
     public Rigidbody humanSpineRb;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Update()
     {
@@ -60,5 +67,15 @@ public class DogsController : MonoBehaviour
             }
         }
 
+    }
+
+    public void AddDogToFlock(GameObject newDog)
+    {
+        newDog.transform.SetParent(transform);
+
+        var newAnimator = newDog.GetComponent<Animator>();
+        var newAgent = newDog.GetComponent<NavMeshAgent>();
+        dogsAgents.Add(newAgent);
+        dogsAnimators.Add(newAnimator);
     }
 }
