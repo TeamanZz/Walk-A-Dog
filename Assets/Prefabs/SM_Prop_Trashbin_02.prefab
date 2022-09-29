@@ -128,3 +128,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flyForce: 10
   torqueForce: 900
+  collisionParticle: {fileID: 1887386285058682, guid: 79eb65b00125a9a43ae9eaa75cb41e3d, type: 3}

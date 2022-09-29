@@ -4865,20 +4865,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1032523482103183881, guid: fbffef637d1170748aef8339f1b1cb7a, type: 3}
   m_PrefabInstance: {fileID: 7714375087734223821}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4737766204723488275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7303349753729816036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f3ea9dc2276c1d4f9eee1dd7a38721e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flyForce: 10
-  torqueForce: 90
 --- !u!54 &6923865586793279597
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4895,7 +4881,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &9114326238078113297
+--- !u!114 &4737766204723488275
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4904,6 +4890,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7303349753729816036}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efc248e007c8a3e42a133195ed0a8ef5, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f3ea9dc2276c1d4f9eee1dd7a38721e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flyForce: 10
+  torqueForce: 90
+  collisionParticle: {fileID: 1936032059195924, guid: e5448bf09bf80c84683234d05d3ccf91, type: 3}

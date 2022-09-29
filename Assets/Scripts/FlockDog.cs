@@ -21,6 +21,7 @@ public class FlockDog : DogBase
     private void Start()
     {
         StartCoroutine(SpawnPoop());
+        transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
     }
 
     private void OnTriggerEnter(Collider other)
