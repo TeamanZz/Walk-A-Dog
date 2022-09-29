@@ -2733,6 +2733,7 @@ Transform:
   m_Children:
   - {fileID: 2246360631103326924}
   - {fileID: 2246360631103326858}
+  - {fileID: 104966046407643674}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2832,6 +2833,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 255485de877b6d3478fd8a2e1397e204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  takeParticle: {fileID: 152564, guid: 0e4a7fa9fd28f154b91c98ee6fe8ebea, type: 3}
+  poopPrefab: {fileID: 7303349753729816036, guid: 8f68ffd381378fe42923661fe341dbcf, type: 3}
+  poopPosition: {fileID: 104966046407643674}
 --- !u!1 &2246360631103035262
 GameObject:
   m_ObjectHideFlags: 0
@@ -4545,3 +4549,33 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: -0.07223619, z: 0.35749125}
     m_Extent: {x: 0.22076535, y: 0.30841976, z: 0.47285527}
   m_DirtyAABB: 0
+--- !u!1 &4441573648017785412
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 104966046407643674}
+  m_Layer: 0
+  m_Name: Poop Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &104966046407643674
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4441573648017785412}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.339, z: -0.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2246360631103327068}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
