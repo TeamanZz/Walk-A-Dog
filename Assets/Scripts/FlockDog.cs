@@ -10,7 +10,6 @@ public class FlockDog : DogBase
 
     private Animator animator;
     private DogBase dog;
-    private bool isTriggered = false;
 
     private void Awake()
     {
@@ -26,12 +25,12 @@ public class FlockDog : DogBase
 
     private void OnTriggerEnter(Collider other)
     {
-        if (isTriggered)
+        if (isFlockPart)
             return;
 
         if (other.TryGetComponent<DogBase>(out dog))
         {
-            isTriggered = true;
+            isFlockPart = true;
             animator.SetInteger("ActionType_int", 0);
             animator.Rebind();
             DogsController.Instance.AddDogToFlock(this.gameObject);
@@ -43,7 +42,7 @@ public class FlockDog : DogBase
     private IEnumerator SpawnPoop()
     {
         yield return new WaitForSeconds(Random.Range(8, 20));
-        if (isTriggered)
+        if (isFlockPart)
         {
             var poop = Instantiate(poopPrefab, poopPosition.position, Quaternion.identity);
             poop.GetComponent<Rigidbody>().AddForce(Vector3.up * 10, ForceMode.Impulse);

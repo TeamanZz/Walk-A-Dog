@@ -5,24 +5,24 @@ using UnityEngine.AI;
 
 public class Walker : MonoBehaviour
 {
-    private NavMeshAgent agent;
-
     public Vector2 targetXAllowedValues;
     public Vector2 targetYAllowedValues;
-
     public Animator animator;
-
     public List<Rigidbody> rbs = new List<Rigidbody>();
     public List<Collider> colliders = new List<Collider>();
-    private DogBase dog;
-
     public CapsuleCollider detectionCollider;
+    public Material deathMaterial;
+    public GameObject deathFace;
+    public List<Material> materials = new List<Material>();
 
-    public Rigidbody rb;
+    private DogBase dog;
+    private NavMeshAgent agent;
+    [SerializeField] private SkinnedMeshRenderer meshRenderer;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        meshRenderer.material = materials[Random.Range(0, materials.Count)];
 
         foreach (var item in colliders)
         {
@@ -54,6 +54,9 @@ public class Walker : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent<DogBase>(out dog))
         {
+            if (!dog.isFlockPart)
+                return;
+
             detectionCollider.enabled = false;
             agent.enabled = false;
             foreach (var item in rbs)
@@ -71,6 +74,11 @@ public class Walker : MonoBehaviour
             {
                 item.AddForce(Vector3.up * 100, ForceMode.Impulse);
             }
+
+            StopAllCoroutines();
+
+            meshRenderer.material = deathMaterial;
+            deathFace.SetActive(true);
         }
     }
 }

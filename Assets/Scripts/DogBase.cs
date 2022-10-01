@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class DogBase : MonoBehaviour
 {
-
+    public bool isFlockPart = false;
 }

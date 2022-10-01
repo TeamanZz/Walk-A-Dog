@@ -13,16 +13,27 @@ public class FixedProps : Props
 
     public GameObject collisionParticle;
 
+    public float particleCooldown = 0;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        particleCooldown -= Time.deltaTime;
     }
 
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.TryGetComponent<DogBase>(out dog))
         {
-            Instantiate(collisionParticle, other.transform.position, Quaternion.identity);
+            if (particleCooldown <= 0)
+            {
+                Instantiate(collisionParticle, other.transform.position, Quaternion.identity);
+                particleCooldown = 5;
+            }
             if (isFixed)
             {
                 isFixed = false;
