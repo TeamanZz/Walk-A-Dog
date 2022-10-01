@@ -18,8 +18,8 @@ GameObject:
   m_Name: SM_Prop_LightPole_Base_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 3
+  m_StaticEditorFlags: 32
   m_IsActive: 1
 --- !u!4 &441074
 Transform:
@@ -99,6 +99,7 @@ MonoBehaviour:
   flyForce: 1
   torqueForce: 90
   collisionParticle: {fileID: 1887386285058682, guid: 79eb65b00125a9a43ae9eaa75cb41e3d, type: 3}
+  area: {fileID: 0}
 --- !u!64 &1374038651284957957
 MeshCollider:
   m_ObjectHideFlags: 0
