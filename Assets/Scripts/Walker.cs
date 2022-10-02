@@ -14,11 +14,14 @@ public class Walker : MonoBehaviour
     public Material deathMaterial;
     public GameObject deathFace;
     public List<Material> materials = new List<Material>();
-
     private DogBase dog;
     private NavMeshAgent agent;
     [SerializeField] private SkinnedMeshRenderer meshRenderer;
     private DemolitionBehaivor demolitionBehaivor;
+
+    public WalkerState walkerState;
+
+    public float stoppingDistance = 1;
 
     private void Awake()
     {
@@ -39,17 +42,32 @@ public class Walker : MonoBehaviour
 
     private void Start()
     {
-        Vector3 targetPos = new Vector3(Random.Range(targetXAllowedValues.x, targetXAllowedValues.y), transform.position.y, Random.Range(targetYAllowedValues.x, targetYAllowedValues.y));
-        agent.destination = targetPos;
-        StartCoroutine(SetNewDestination());
+        SetNewDestination();
+        StartCoroutine(SetNewDestinationInLoop());
     }
 
-    private IEnumerator SetNewDestination()
+    private void Update()
+    {
+        if (agent.remainingDistance >= 0.5f
+        && walkerState == WalkerState.Walk
+        && agent.remainingDistance <= stoppingDistance)
+        {
+            ChangeState(WalkerState.Idle);
+        }
+    }
+
+    private IEnumerator SetNewDestinationInLoop()
     {
         yield return new WaitForSeconds(Random.Range(8, 20));
+        SetNewDestination();
+        yield return SetNewDestinationInLoop();
+    }
+
+    private void SetNewDestination()
+    {
         Vector3 targetPos = new Vector3(Random.Range(targetXAllowedValues.x, targetXAllowedValues.y), transform.position.y, Random.Range(targetYAllowedValues.x, targetYAllowedValues.y));
         agent.destination = targetPos;
-        yield return SetNewDestination();
+        ChangeState(WalkerState.Walk);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -82,6 +100,27 @@ public class Walker : MonoBehaviour
             meshRenderer.material = deathMaterial;
             deathFace.SetActive(true);
             demolitionBehaivor.IncreaseDemolition();
+
+            this.enabled = false;
         }
+    }
+
+    private void ChangeState(WalkerState newState)
+    {
+        walkerState = newState;
+        if (walkerState == WalkerState.Idle)
+        {
+            animator.SetBool("IsWalking", false);
+        }
+        else
+        {
+            animator.SetBool("IsWalking", true);
+        }
+    }
+
+    public enum WalkerState
+    {
+        Idle,
+        Walk
     }
 }

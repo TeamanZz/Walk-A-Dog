@@ -157,6 +157,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 7a96bd790437e4eeb8e4ef758effd01d, type: 2}
   - {fileID: 2100000, guid: f08ba26edd6e64169af596fc10d8d0f6, type: 2}
   meshRenderer: {fileID: 1498187143863233372}
+  walkerState: 0
+  stoppingDistance: 1
 --- !u!136 &143104948951573409
 CapsuleCollider:
   m_ObjectHideFlags: 0
