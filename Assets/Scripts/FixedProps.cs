@@ -15,9 +15,12 @@ public class FixedProps : Props
 
     public float particleCooldown = 0;
 
+    private DemolitionBehaivor demolitionBehaivor;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        demolitionBehaivor = GetComponent<DemolitionBehaivor>();
     }
 
     private void Update()
@@ -40,6 +43,7 @@ public class FixedProps : Props
                 rb.constraints = RigidbodyConstraints.None;
                 rb.AddForce(Vector3.up * flyForce, ForceMode.Impulse);
                 rb.AddTorque(new Vector3(Random.Range(0, 1f), Random.Range(0, 1f), Random.Range(0, 1f)) * torqueForce, ForceMode.Impulse);
+                demolitionBehaivor.IncreaseDemolition();
             }
         }
     }

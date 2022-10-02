@@ -18,10 +18,12 @@ public class Walker : MonoBehaviour
     private DogBase dog;
     private NavMeshAgent agent;
     [SerializeField] private SkinnedMeshRenderer meshRenderer;
+    private DemolitionBehaivor demolitionBehaivor;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        demolitionBehaivor = GetComponent<DemolitionBehaivor>();
         meshRenderer.material = materials[Random.Range(0, materials.Count)];
 
         foreach (var item in colliders)
@@ -79,6 +81,7 @@ public class Walker : MonoBehaviour
 
             meshRenderer.material = deathMaterial;
             deathFace.SetActive(true);
+            demolitionBehaivor.IncreaseDemolition();
         }
     }
 }

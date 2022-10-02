@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6408934453667030126}
   - component: {fileID: 1374038651284957957}
   - component: {fileID: 5111873890393132548}
+  - component: {fileID: 510872836758688229}
   m_Layer: 0
   m_Name: SM_Prop_LightPole_Base_02
   m_TagString: Untagged
@@ -99,7 +100,7 @@ MonoBehaviour:
   flyForce: 1
   torqueForce: 90
   collisionParticle: {fileID: 1887386285058682, guid: 79eb65b00125a9a43ae9eaa75cb41e3d, type: 3}
-  area: {fileID: 0}
+  particleCooldown: 0
 --- !u!64 &1374038651284957957
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -130,3 +131,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &510872836758688229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3371fbd18998a554da0419d00983a47e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  demolitionPercent: 1

@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 143104948951573411}
   - component: {fileID: 143104948951573409}
   - component: {fileID: 143104948951573408}
+  - component: {fileID: -6673801230965986307}
   m_Layer: 0
   m_Name: Walker
   m_TagString: Untagged
@@ -186,6 +187,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &-6673801230965986307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143104948951573413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3371fbd18998a554da0419d00983a47e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  demolitionPercent: 1
 --- !u!1 &167435442503654580
 GameObject:
   m_ObjectHideFlags: 0

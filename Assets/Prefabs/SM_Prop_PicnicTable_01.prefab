@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1750739780834784653}
   - component: {fileID: 3646326322731290539}
   - component: {fileID: 2816682571673052415}
+  - component: {fileID: -7605578790909173065}
   m_Layer: 0
   m_Name: SM_Prop_PicnicTable_01
   m_TagString: Untagged
@@ -129,4 +130,17 @@ MonoBehaviour:
   flyForce: 10
   torqueForce: 900
   collisionParticle: {fileID: 1887386285058682, guid: 79eb65b00125a9a43ae9eaa75cb41e3d, type: 3}
-  area: {fileID: 0}
+  particleCooldown: 0
+--- !u!114 &-7605578790909173065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3371fbd18998a554da0419d00983a47e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  demolitionPercent: 1
